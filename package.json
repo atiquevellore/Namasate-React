@@ -1,0 +1,26 @@
+{
+  "name": "namasate-react",
+  "version": "1.0.0",
+  "description": "react learning repo",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atiquevellore/Namasate-React.git"
+  },
+  "keywords": [
+    "react",
+    "js"
+  ],
+  "author": "atique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atiquevellore/Namasate-React/issues"
+  },
+  "homepage": "https://github.com/atiquevellore/Namasate-React#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
