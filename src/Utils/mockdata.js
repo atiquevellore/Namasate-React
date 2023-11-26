@@ -1,56 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client"
 
-//plan the ui mock and component structure before coding 
-
-/*
-Food ordering app planning
-
-Component level structure
-
-*Heading
--logo
--nav items
-*Body
--search bar
-- Resturant Container(contains all the resturant cards)
-- each  resturant  container will have Image Preview and it details
-*footer
-- copyright
-- address
-*/
-
-const Header = () => {
-    return (
-        <div className="header-container">
-            <div className="logo-container">
-                 <img className="logo" src="https://cdn.dribbble.com/userupload/9902999/file/original-de06ad0905f8f51f1e1d0adbf2c4e538.jpg?resize=400x0"/>
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Help</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const ResturantCard = ({resdata}) => {
-    const {name,cuisines,avgRatingString,costForTwo,cloudinaryImageId} = resdata
-    const imgprefixlink="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_220/"
-    return (
-        <div className="res-card">
-                <img  className="res-logo" src={imgprefixlink+cloudinaryImageId}/>
-            <h3>{name}</h3>
-            <h4>{cuisines.join(', ')}</h4>
-            <h4>{avgRatingString}</h4>
-            <h4>{costForTwo}</h4>
-        </div>
-    )
-} 
 const  restaurants =  [
     {
       "info": {
@@ -1656,28 +1604,5 @@ const  restaurants =  [
       }
     },
   ]
-const Body  = () => {
-    return (
-        <div>
-            <div className="search-bar">
-                <h4>search</h4>
-            </div>
-            <div className="resturant-container">
-                { restaurants.map((rest)=> <ResturantCard key={rest.info.id}  resdata = {rest.info}/>) }
-            </div>
-        </div>
-    )
-}
 
-const AppmainLayout = () => {
-    return (
-        <div className="main-comp">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppmainLayout/>)
+export default restaurants;
