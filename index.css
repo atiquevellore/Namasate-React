@@ -5,8 +5,17 @@
 	height: 110px;
 }
 
+.logo-container {
+	display: flex;
+	justify-content: flex-start;
+}
+
 .logo {
-	width: 140px;
+	height: 110px;
+}
+
+.logo-text {
+	padding: 30px;
 }
 
 .nav-items > ul {
