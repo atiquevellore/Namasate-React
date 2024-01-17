@@ -1,17 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 
 const AppmainLayout = () => {
-    return (
-        <div className="main-comp">
-            <Header/>
-            <Body/>
-        </div>
-    )
-}
+	return (
+		<div className="main-comp">
+			<Header />
+			<Body />
+		</div>
+	);
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppmainLayout/>)
+root.render(<AppmainLayout />);
