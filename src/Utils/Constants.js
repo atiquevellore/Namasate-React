@@ -5,4 +5,4 @@ export const IMAGE_CDN_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_220/";
 
 export const RESTURANT_API_URL =
-	"https://www.swiggy.com/dapi/restaurants/list/v5?lat=15.2688542&lng=76.39092409999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+	"https://9a8d890ed6ce4ac7ae7a07523601bbbf.api.mockbin.io/";
