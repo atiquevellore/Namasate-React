@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LOGO_URL } from "../Utils/constants";
+import { LOGO_URL } from "../Utils/Constants";
 
 const Header = () => {
 	const [val, setValue] = useState("login");

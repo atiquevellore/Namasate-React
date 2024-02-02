@@ -10,7 +10,7 @@ const Body = () => {
 
 	useEffect(() => {
 		fetchData();
-	}, [1]);
+	}, []);
 
 	async function fetchData() {
 		const data = await fetch(RESTURANT_API_URL);
