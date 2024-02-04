@@ -24,6 +24,8 @@
 }
 .nav-items > ul {
 	display: flex;
+	justify-content: space-evenly;
+	align-items: flex-start;
 	font-size: large;
 }
 
@@ -31,6 +33,10 @@
 	padding: 30px;
 	margin-bottom: 50%;
 	list-style-type: none;
+}
+
+.nav-items > ul > li > a {
+	cursor: pointer;
 }
 
 .search-bar {
@@ -104,4 +110,10 @@
 }
 .search-btn {
 	padding-left: 5px;
+}
+
+.error-gif {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
