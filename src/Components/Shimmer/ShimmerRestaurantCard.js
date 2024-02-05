@@ -1,4 +1,4 @@
-const ShimmerResturantCard = () => {
+const ShimmerRestaurantCard = () => {
 	return (
 		<div className="shim-card">
 			<div className="empty-res-logo"></div>
@@ -18,4 +18,4 @@ const ShimmerResturantCard = () => {
 	);
 };
 
-export default ShimmerResturantCard;
+export default ShimmerRestaurantCard;

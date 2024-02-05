@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { LOGO_URL } from "../Utils/Constants";
+import { LOGO_URL } from "../../Utils/Constants";
 import { Link } from "react-router-dom";
 
 const Header = () => {

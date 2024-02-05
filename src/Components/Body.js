@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import ResturantCard from "./ResturantCard";
+import RestaurantCard from "./Restaurant/RestaurantCard";
 import { useState } from "react";
-import { RESTURANT_API_URL } from "../Utils/Constants";
+import { RESTAURANT_API_URL } from "../Utils/Constants";
 import ShimmerContainer from "./Shimmer/ShimmerContainer";
+import { Link } from "react-router-dom";
 const Body = () => {
-	const [listofresturants, setListOfResturants] = useState([]);
-	const [filteredresturants, setFilterResturants] = useState([]);
+	const [listofrestaurants, setListOfRestaurants] = useState([]);
+	const [filteredrestaurants, setFilterRestaurants] = useState([]);
 	const [searchText, setSearchText] = useState("");
 
 	useEffect(() => {
@@ -13,17 +14,17 @@ const Body = () => {
 	}, []);
 
 	async function fetchData() {
-		const data = await fetch(RESTURANT_API_URL);
+		const data = await fetch(RESTAURANT_API_URL);
 		const resturantdata = await data.json();
-		setListOfResturants(
+		setListOfRestaurants(
 			resturantdata?.card?.card?.gridElements?.infoWithStyle.restaurants
 		);
-		setFilterResturants(
+		setFilterRestaurants(
 			resturantdata?.card?.card?.gridElements?.infoWithStyle.restaurants
 		);
 	}
 
-	if (listofresturants.length === 0) {
+	if (listofrestaurants.length === 0) {
 		return <ShimmerContainer />;
 	}
 	return (
@@ -39,10 +40,10 @@ const Body = () => {
 					<button
 						className="search-btn"
 						onClick={() => {
-							const filresturants = listofresturants.filter((item) =>
+							const filrestaurants = listofresturants.filter((item) =>
 								item.info.name.toLowerCase().includes(searchText.toLowerCase())
 							);
-							setFilterResturants(filresturants);
+							setFilterResturants(filrestaurants);
 						}}>
 						{" "}
 						Search
@@ -51,16 +52,23 @@ const Body = () => {
 				<button
 					className="filter-btn"
 					onClick={() => {
-						setFilterResturants(
-							listofresturants.filter((res) => res.info.avgRating >= 4.3).sort()
+						setFilterRestaurants(
+							listofrestaurants
+								.filter((res) => res.info.avgRating >= 4.3)
+								.sort()
 						);
 					}}>
 					filter Top Rated resturants
 				</button>
 			</div>
-			<div className="resturant-container">
-				{filteredresturants.map((resitem) => (
-					<ResturantCard key={resitem.info.id} resdata={resitem.info} />
+			<div className="restaurant-container">
+				{filteredrestaurants.map((resitem) => (
+					<Link
+						to={"/resturants/" + resitem.info.id}
+						key={resitem.info.id}
+						className="CardLink">
+						<RestaurantCard resdata={resitem.info} />
+					</Link>
 				))}
 				;
 			</div>

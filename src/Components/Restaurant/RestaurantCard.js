@@ -1,5 +1,5 @@
-import { IMAGE_CDN_URL } from "../Utils/Constants";
-const ResturantCard = ({ resdata }) => {
+import { IMAGE_CDN_URL } from "../../Utils/Constants";
+const RestaurantCard = ({ resdata }) => {
 	const { name, cuisines, avgRatingString, costForTwo, cloudinaryImageId } =
 		resdata;
 	const { slaString } = resdata?.sla;
@@ -15,4 +15,4 @@ const ResturantCard = ({ resdata }) => {
 	);
 };
 
-export default ResturantCard;
+export default RestaurantCard;

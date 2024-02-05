@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./Components/Header";
+import Header from "./Components/nav-items/Header";
 import Body from "./Components/Body";
-import About from "./Components/About";
+import About from "./Components/nav-items/About";
 import Error from "./Components/Error";
-import Help from "./Components/Help";
+import Help from "./Components/nav-items/Help";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import RestaurantMenu from "./Components/Restaurant/RestaurantMenu";
 
 const AppmainLayout = () => {
 	return (
@@ -35,11 +36,13 @@ const appRoutes = createBrowserRouter([
 				path: "/help",
 				element: <Help />,
 			},
+			{
+				path: "/resturants/:id",
+				element: <RestaurantMenu />,
+			},
 		],
 		errorElement: <Error />,
 	},
 ]);
-
-<RouterProvider />;
 
 root.render(<RouterProvider router={appRoutes} />);

@@ -1,17 +1,17 @@
-import ShimmerResturantCard from "./ShimmerResturantCard";
+import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 
 const ShimmerContainer = () => {
 	return (
 		<div className="shim-container">
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
-			<ShimmerResturantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
+			<ShimmerRestaurantCard />
 		</div>
 	);
 };
