@@ -34,7 +34,7 @@ const appRoutes = createBrowserRouter([
 			},
 			{
 				path: "/help",
-				element: <Help />,
+				element: <Help name="atique" />,
 			},
 			{
 				path: "/resturants/:id",
