@@ -4,34 +4,37 @@ class UserInfo extends React.Component {
 		super(props);
 
 		this.state = {
-			count: 0,
+			UserData: {
+				name: "dummy",
+				avatar_url: "https://picsum.photos/200/300?random=1",
+				bio: "",
+				location: "",
+			},
 		};
-
-		console.log(this.props.name + "constructor");
 	}
 
-	componentDidMount() {
-		console.log(this.props.name + "Component DidMount");
+	async componentDidMount() {
+		const data = await fetch("https://api.github.com/users/atiquevellore");
+		const json = await data.json();
+		this.setState({
+			UserData: json,
+		});
+	}
+
+	componentDidUpdate() {
+		console.log("componentDidUpdate Called");
+	}
+
+	componentWillUnmount() {
+		console.log("componentWillUmount called");
 	}
 	render() {
-		const { name, designation, location } = this.props;
-		console.log(name + "render");
-		const { count } = this.state;
 		return (
-			<div>
-				<h4>Count: {count}</h4>
-				<button
-					onClick={() => {
-						this.setState({
-							count: count + 1,
-						});
-					}}>
-					{" "}
-					Increase count value
-				</button>
-				<h2>{name}</h2>
-				<h3>{designation}</h3>
-				<h3>{location}</h3>
+			<div style={{ border: "1px solid black", width: "500px" }}>
+				<img src={this.state.UserData.avatar_url} />
+				<h2>{this.state.UserData.name}</h2>
+				<h3>{this.state.UserData.bio}</h3>
+				<h3>{this.state.UserData.location}</h3>
 			</div>
 		);
 	}

@@ -16,21 +16,7 @@ class About extends Component {
 		return (
 			<>
 				<h1>About Me</h1>
-				<UserInfo
-					name={"first"}
-					designation={"Software Engineer I"}
-					location={"Bangalore"}
-				/>
-				<UserInfo
-					name={"second"}
-					designation={"Software Engineer I"}
-					location={"Bangalore"}
-				/>
-				<UserInfo
-					name={"third"}
-					designation={"Software Engineer I"}
-					location={"Bangalore"}
-				/>
+				<UserInfo />
 			</>
 		);
 	}
