@@ -4,10 +4,13 @@ import { useState } from "react";
 import { RESTAURANT_API_URL } from "../Utils/Constants";
 import ShimmerContainer from "./Shimmer/ShimmerContainer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
 const Body = () => {
 	const [listofrestaurants, setListOfRestaurants] = useState([]);
 	const [filteredrestaurants, setFilterRestaurants] = useState([]);
 	const [searchText, setSearchText] = useState("");
+
+	const onlineStatus = useOnlineStatus();
 
 	useEffect(() => {
 		fetchData();
@@ -27,6 +30,11 @@ const Body = () => {
 	if (listofrestaurants.length === 0) {
 		return <ShimmerContainer />;
 	}
+
+	if (onlineStatus === false) {
+		return <h1>Looks Like You are offline 😢</h1>;
+	}
+
 	return (
 		<div>
 			<div className="filter-container">
@@ -40,10 +48,10 @@ const Body = () => {
 					<button
 						className="search-btn"
 						onClick={() => {
-							const filrestaurants = listofresturants.filter((item) =>
+							const filrestaurants = listofrestaurants.filter((item) =>
 								item.info.name.toLowerCase().includes(searchText.toLowerCase())
 							);
-							setFilterResturants(filrestaurants);
+							setFilterRestaurants(filrestaurants);
 						}}>
 						{" "}
 						Search
