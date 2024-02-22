@@ -1,4 +1,3 @@
-import "./styles/restaurant.css";
 import { useParams } from "react-router";
 import MenuItem from "./MenuItem";
 import ShimmerRestaurantCard from "../Shimmer/ShimmerRestaurantCard";

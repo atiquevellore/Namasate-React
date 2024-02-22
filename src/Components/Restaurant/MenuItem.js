@@ -1,4 +1,3 @@
-import "./styles/restaurant.css";
 const MenuItem = ({ info }) => {
 	const { name, price, defaultPrice } = info.card.info;
 	return (

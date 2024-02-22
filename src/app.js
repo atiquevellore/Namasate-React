@@ -1,12 +1,11 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/nav-items/Header";
 import Body from "./Components/Body";
-import About from "./Components/nav-items/About";
 import Error from "./Components/Error";
-import Help from "./Components/nav-items/Help";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/Restaurant/RestaurantMenu";
+import ShimmerRestaurantCard from "./Components/Shimmer/ShimmerRestaurantCard";
 
 const AppmainLayout = () => {
 	return (
@@ -16,6 +15,10 @@ const AppmainLayout = () => {
 		</div>
 	);
 };
+
+const Help = lazy(() => import("./Components/nav-items/Help.js"));
+
+const Aboutlazy = lazy(() => import("./Components/nav-items/About.js"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -30,11 +33,19 @@ const appRoutes = createBrowserRouter([
 			},
 			{
 				path: "/about",
-				element: <About />,
+				element: (
+					<Suspense fallback={<ShimmerRestaurantCard />}>
+						<Aboutlazy />
+					</Suspense>
+				),
 			},
 			{
 				path: "/help",
-				element: <Help name="atique" />,
+				element: (
+					<Suspense fallback={<ShimmerRestaurantCard />}>
+						<Help name="atique" />
+					</Suspense>
+				),
 			},
 			{
 				path: "/resturants/:id",
