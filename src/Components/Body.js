@@ -37,28 +37,33 @@ const Body = () => {
 
 	return (
 		<div>
-			<div className="filter-container">
-				<div>
-					<input
-						type="text"
-						className="searchbox"
-						value={searchText}
-						onChange={(e) => setSearchText(e.target.value)}
-					/>
-					<button
-						className="search-btn"
-						onClick={() => {
-							const filrestaurants = listofrestaurants.filter((item) =>
-								item.info.name.toLowerCase().includes(searchText.toLowerCase())
-							);
-							setFilterRestaurants(filrestaurants);
-						}}>
-						{" "}
-						Search
-					</button>
-				</div>
+			<div className="filter-container ">
+				<input
+					class="placeholder:italic
+						 placeholder:text-slate-400 
+						  bg-white  border border-slate-300 
+						  rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none
+						   focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm 
+						   m-2   w-auto inline-block"
+					placeholder="Search for Resturants..."
+					type="text"
+					name="search"
+					value={searchText}
+					onChange={(e) => setSearchText(e.target.value)}
+				/>
 				<button
-					className="filter-btn"
+					className=" bg-blue-300  font-sans m-3 p-1 rounded-lg"
+					onClick={() => {
+						const filrestaurants = listofrestaurants.filter((item) =>
+							item.info.name.toLowerCase().includes(searchText.toLowerCase())
+						);
+						setFilterRestaurants(filrestaurants);
+					}}>
+					{" "}
+					Search
+				</button>
+				<button
+					className=" bg-blue-300   font-sans  m-3 p-1 rounded-lg"
 					onClick={() => {
 						setFilterRestaurants(
 							listofrestaurants
@@ -66,10 +71,10 @@ const Body = () => {
 								.sort()
 						);
 					}}>
-					filter Top Rated resturants
+					Top Rated Resturants
 				</button>
 			</div>
-			<div className="restaurant-container">
+			<div className="flex  flex-wrap">
 				{filteredrestaurants.map((resitem) => (
 					<Link
 						to={"/resturants/" + resitem.info.id}
@@ -78,7 +83,6 @@ const Body = () => {
 						<RestaurantCard resdata={resitem.info} />
 					</Link>
 				))}
-				;
 			</div>
 		</div>
 	);

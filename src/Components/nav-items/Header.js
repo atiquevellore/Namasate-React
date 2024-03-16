@@ -7,32 +7,31 @@ const Header = () => {
 	const [val, setValue] = useState("login");
 	const onlineStatus = useOnlineStatus();
 	return (
-		<div className="header-container">
-			<div className="logo-container">
-				<img className="logo" src={LOGO_URL} />
-				<h2 className="logo-text">
-					<i>Food Order Hub</i>
-				</h2>
+		<div className="flex justify-between  mx-2 my-2 bg-red-300  shadow-lg">
+			<div>
+				<img className=" h-16 " src={LOGO_URL} />
+				<h2 className=" italic font-bold">Food Order Hub</h2>
 			</div>
-			<div className="nav-items">
-				<ul>
-					<li>Status: {onlineStatus ? "🟢" : "🔴"}</li>
-					<li>
+			<div>
+				<ul className="flex  m-5">
+					<li className="m-4">Status: {onlineStatus ? "🟢" : "🔴"}</li>
+					<li className="m-4">
 						<Link to="/">Home</Link>
 					</li>
-					<li>
+					<li className="m-4">
 						<Link to="/about">About</Link>
 					</li>
-					<li>
+					<li className="m-4">
 						<Link to="/help">Help</Link>
 					</li>
-					<button
-						className="login-btn"
-						onClick={() => {
-							val === "login" ? setValue("logout") : setValue("login");
-						}}>
-						{val}
-					</button>
+					<div className=" bg-blue-300  font-sans m-2 p-2 rounded-lg">
+						<button
+							onClick={() => {
+								val === "login" ? setValue("logout") : setValue("login");
+							}}>
+							{val}
+						</button>
+					</div>
 				</ul>
 			</div>
 		</div>

@@ -12,7 +12,7 @@ const RestaurantMenu = () => {
 	}
 	const { name, cuisines, areaName, avgRating } =
 		menuinfo?.data?.cards[0].card?.card?.info;
-
+	console.log("menuinfo", menuinfo?.data?.cards[0].card?.card?.info);
 	const { itemCards } =
 		menuinfo?.data?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards[2].card
 			.card;
