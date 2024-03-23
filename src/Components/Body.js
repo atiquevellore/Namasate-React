@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import RestaurantCard from "./Restaurant/RestaurantCard";
 import { useState } from "react";
 import { RESTAURANT_API_URL } from "../Utils/Constants";
 import ShimmerContainer from "./Shimmer/ShimmerContainer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../Utils/useOnlineStatus";
+import userContext from "../Utils/userContext";
 const Body = () => {
 	const [listofrestaurants, setListOfRestaurants] = useState([]);
 	const [filteredrestaurants, setFilterRestaurants] = useState([]);
 	const [searchText, setSearchText] = useState("");
+
+	const { userName, setUserName } = useContext(userContext);
 
 	const onlineStatus = useOnlineStatus();
 
@@ -39,7 +42,7 @@ const Body = () => {
 		<div>
 			<div className="filter-container ">
 				<input
-					class="placeholder:italic
+					className="placeholder:italic
 						 placeholder:text-slate-400 
 						  bg-white  border border-slate-300 
 						  rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none
@@ -73,6 +76,19 @@ const Body = () => {
 					}}>
 					Top Rated Resturants
 				</button>
+				<input
+					className="placeholder:italic
+						 placeholder:text-slate-400 
+						  bg-white  border border-slate-300 
+						  rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none
+						   focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm 
+						   m-2   w-auto inline-block"
+					placeholder="add username for context"
+					type="text"
+					name="search"
+					value={userName}
+					onChange={(e) => setUserName(e.target.value)}
+				/>
 			</div>
 			<div className="flex  flex-wrap">
 				{filteredrestaurants.map((resitem) => (

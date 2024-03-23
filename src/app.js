@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/nav-items/Header";
 import Body from "./Components/Body";
@@ -6,13 +6,20 @@ import Error from "./Components/Error";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/Restaurant/RestaurantMenu";
 import ShimmerRestaurantCard from "./Components/Shimmer/ShimmerRestaurantCard";
+import userContext from "./Utils/userContext.js";
+import { Provider } from "react-redux";
+import appStore from "./store/appStore.js";
+import Cart from "./Components/Restaurant/Cart.js";
 
 const AppmainLayout = () => {
+	const [userName, setUserName] = useState("default");
 	return (
-		<div className="main-comp">
-			<Header />
-			<Outlet />
-		</div>
+		<Provider store={appStore}>
+			<userContext.Provider value={{ userName, setUserName }}>
+				<Header />
+				<Outlet />
+			</userContext.Provider>
+		</Provider>
 	);
 };
 
@@ -46,6 +53,10 @@ const appRoutes = createBrowserRouter([
 						<Help name="atique" />
 					</Suspense>
 				),
+			},
+			{
+				path: "/cart",
+				element: <Cart />,
 			},
 			{
 				path: "/resturants/:id",
