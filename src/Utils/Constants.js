@@ -4,6 +4,9 @@ export const LOGO_URL =
 export const IMAGE_CDN_URL =
 	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
+export const ITEM_CDN_URL =
+	"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_150/";
+
 export const RESTAURANT_API_URL = "https://resturants.free.beeceptor.com/data";
 
 export const Menu_INFO_URL =
